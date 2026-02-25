@@ -1,38 +1,72 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Providers } from "@/components/Providers";
+import {
+  defaultSeo,
+  SITE_URL,
+  getOrganizationJsonLd,
+  getWebSiteJsonLd,
+} from "@/lib/seo";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "WMSols | Digital Solutions That Matter",
-  description:
-    "WMSols is a modern technology agency crafting innovative digital solutions. We specialize in web development, mobile apps, cloud solutions, and UI/UX design.",
-  authors: [{ name: "WMSols" }],
-  keywords: [
-    "web development",
-    "mobile development",
-    "cloud solutions",
-    "UI/UX design",
-    "MERN stack",
-    "full stack development",
-    "software agency",
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
   ],
+};
+
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: defaultSeo.title,
+    template: defaultSeo.titleTemplate,
+  },
+  description: defaultSeo.description,
+  authors: [{ name: "WMSols", url: SITE_URL }],
+  creator: "WMSols",
+  publisher: "WMSols",
+  keywords: defaultSeo.keywords,
+  referrer: "origin-when-cross-origin",
+  alternates: {
+    canonical: SITE_URL,
+  },
   openGraph: {
-    title: "WMSols | Digital Solutions That Matter",
+    title: defaultSeo.title,
     description:
       "We build digital experiences that empower businesses to thrive. From concept to deployment, we craft innovative software solutions.",
-    type: "website",
-    url: "https://wmsols.com",
-    siteName: "WMSols",
+    type: defaultSeo.openGraph.type,
+    url: SITE_URL,
+    siteName: defaultSeo.openGraph.siteName,
+    locale: defaultSeo.openGraph.locale,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WMSols – Digital Solutions That Matter",
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
-    site: "@wmsols",
-    title: "WMSols | Digital Solutions That Matter",
-    description: "We build digital experiences that empower businesses to thrive.",
+    card: defaultSeo.twitter.card,
+    site: defaultSeo.twitter.site,
+    title: defaultSeo.title,
+    description:
+      "We build digital experiences that empower businesses to thrive.",
+    images: ["/og-image.png"],
   },
+  robots: defaultSeo.robots,
+  verification: {
+    // Add your verification tokens when you have them (Google Search Console, etc.)
+    // google: "your-google-verification-code",
+    // yandex: "your-yandex-verification-code",
+  },
+  category: "technology",
 };
 
 export default function RootLayout({
@@ -40,10 +74,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationJsonLd = getOrganizationJsonLd();
+  const websiteJsonLd = getWebSiteJsonLd();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="canonical" href="https://wmsols.com" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd),
+          }}
+        />
       </head>
       <body className="antialiased" suppressHydrationWarning>
         <GoogleAnalytics />

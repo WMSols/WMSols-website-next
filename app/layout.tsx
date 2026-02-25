@@ -74,6 +74,10 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   robots: defaultSeo.robots,
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
   verification: {
     // Add your verification tokens when you have them (Google Search Console, etc.)
     // google: "your-google-verification-code",

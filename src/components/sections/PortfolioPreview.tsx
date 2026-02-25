@@ -13,7 +13,7 @@ const portfolioProjects = [
     description:
       "A comprehensive project management tool with real-time collaboration, drag-and-drop boards, and advanced analytics.",
     image:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=600&q=75",
     tags: ["React", "Node.js", "MongoDB", "Socket.io"],
     github: "#",
     demo: "#",
@@ -25,7 +25,7 @@ const portfolioProjects = [
     description:
       "Real-time cryptocurrency tracking dashboard with portfolio management and price alerts.",
     image:
-      "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=600&q=75",
     tags: ["React", "Express", "MongoDB", "Redux"],
     github: "#",
     demo: "#",
@@ -37,7 +37,7 @@ const portfolioProjects = [
     description:
       "Social recipe sharing platform with meal planning, shopping lists, and nutritional information.",
     image:
-      "https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=600&q=75",
     tags: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
     github: "#",
     demo: "#",
@@ -83,6 +83,10 @@ export function PortfolioPreview() {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width={600}
+                  height={338}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center gap-4 p-4">

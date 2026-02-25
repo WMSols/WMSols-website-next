@@ -14,7 +14,7 @@ const featuredProjects = [
     description:
       "A privacy-focused AI companion app providing emotional support, personalized conversations, and daily suggestions for users aged 50+.",
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=75",
     tags: ["Flutter", "Firebase Auth", "Firestore", "Stripe", "GetX"],
   },
   {
@@ -25,7 +25,7 @@ const featuredProjects = [
     description:
       "A role-based recruitment management system built with Flutter Web and Firebase, enabling job postings, application tracking, and document validation workflows.",
     image:
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=600&q=75",
     tags: [
       "Flutter Web",
       "GetX",
@@ -42,7 +42,7 @@ const featuredProjects = [
     description:
       "A Flutter web application designed to provide an elegant online showcase for the Elegant Advisors platform.",
     image:
-      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?auto=format&fit=crop&w=600&q=75",
     tags: ["Flutter", "Dart", "Web"],
   },
 ];
@@ -99,6 +99,10 @@ export function ProjectsPreview() {
                 <img
                   src={project.image}
                   alt={project.title}
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4">

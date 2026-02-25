@@ -107,12 +107,14 @@ export function Navbar() {
         )}
       >
         <div className="flex items-center justify-between px-6 py-5 border-b border-border">
-          <span className="font-heading text-lg font-semibold text-accent">
+          <span className="font-heading text-lg font-semibold text-foreground">
             Menu
           </span>
           <button
+            type="button"
             onClick={() => setIsMobileMenuOpen(false)}
             className="p-2 rounded-lg hover:bg-muted transition-colors"
+            aria-label="Close menu"
           >
             <X size={22} />
           </button>

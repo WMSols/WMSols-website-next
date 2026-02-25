@@ -62,7 +62,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold mb-5">Company</h4>
+            <h2 className="font-heading font-semibold text-base mb-5">Company</h2>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.path}>
@@ -94,7 +94,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold mb-5">Contact</h4>
+            <h2 className="font-heading font-semibold text-base mb-5">Contact</h2>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail size={18} className="mt-1 text-accent" />
